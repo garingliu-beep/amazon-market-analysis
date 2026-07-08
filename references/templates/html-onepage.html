@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{PRODUCT_NAME}} 选品一页报告</title>
+<style>
+:root{--bg:#f8f9fa;--white:#fff;--text:#1a1a2e;--t2:#6c757d;--bd:#e9ecef;--pri:#2563eb;--grn:#10b981;--ylw:#f59e0b;--red:#ef4444;--gl:#ecfdf5;--yl:#fffbeb;--rl:#fef2f2;--r:8px;--sh:0 1px 3px rgba(0,0,0,.08)}
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text);line-height:1.5;font-size:13px}
+.c{max-width:720px;margin:0 auto;padding:20px 16px}
+.card{background:var(--white);border-radius:var(--r);box-shadow:var(--sh);overflow:hidden}
+.hdr{background:linear-gradient(135deg,#1e3a5f,#2563eb);color:#fff;padding:20px 24px}.hdr h1{font-size:18px;font-weight:700}.hdr .m{font-size:12px;opacity:.85;margin-top:4px}
+.body{padding:20px 24px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:10px 0}
+.box{border:1px solid var(--bd);border-radius:6px;padding:10px 12px}.box-t{font-weight:700;font-size:12px;color:var(--pri);margin-bottom:6px}
+table{width:100%;border-collapse:collapse;font-size:12px;margin:6px 0}th{background:#f1f5f9;font-weight:600;text-align:left;padding:6px 8px;border:1px solid var(--bd)}td{padding:5px 8px;border:1px solid var(--bd)}
+.b{display:inline-block;padding:2px 6px;border-radius:10px;font-size:11px;font-weight:600}.b-g{background:var(--gl);color:#065f46}.b-y{background:var(--yl);color:#92400e}.b-r{background:var(--rl);color:#991b1b}
+.sig{display:flex;gap:10px;margin:12px 0}.si{flex:1;padding:12px;border-radius:6px;text-align:center;border:2px solid transparent}.si-g{background:var(--gl);border-color:var(--grn)}.si-y{background:var(--yl);border-color:var(--ylw)}.si-r{background:var(--rl);border-color:var(--red)}.si .l{font-size:10px;color:var(--t2)}.si .v{font-size:16px;font-weight:700;margin:2px 0}
+.kv{display:grid;grid-template-columns:100px 1fr;gap:3px 8px;font-size:12px}.kv dt{font-weight:600;color:var(--t2);text-align:right}
+.divider{border:none;border-top:1px solid var(--bd);margin:12px 0}
+.ft{text-align:center;padding:12px;font-size:11px;color:var(--t2);border-top:1px solid var(--bd)}
+@media print{body{background:#fff;font-size:11px}.card{box-shadow:none;border:1px solid #ddd}.si,.b{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style>
+</head>
+<body>
+<div class="c">
+<div class="card">
+  <div class="hdr">
+    <h1>{{PRODUCT_NAME}} — 选品一页报告</h1>
+    <div class="m">📍 {{TARGET_SITE}} | 📅 {{DATE}}</div>
+  </div>
+  <div class="body">
+
+    <!-- 关键词 -->
+    <div class="box">
+      <div class="box-t">🔑 关键词与市场定义</div>
+      <div class="kv">
+        <dt>关键词</dt><dd>{{KEYWORD}}</dd>
+        <dt>月搜索量</dt><dd>{{SEARCH_VOL}}</dd>
+        <dt>CPC</dt><dd>${{CPC}}</dd>
+        <dt>组合公式</dt><dd>{{KEYWORD_FORMULA}}</dd>
+      </div>
+    </div>
+
+    <!-- 需求+竞争 -->
+    <div class="row">
+      <div class="box">
+        <div class="box-t">📈 需求验证</div>
+        <div class="kv">
+          <dt>销量中位数</dt><dd>{{MED_SALES}} <span class="b {{MS_C}}">{{MS_L}}</span></dd>
+          <dt>趋势</dt><dd>{{TREND}}</dd>
+          <dt>市场vs个体</dt><dd>{{MKT_VS_IND}}</dd>
+          <dt>需求类型</dt><dd>{{DEMAND_TYPE}}</dd>
+        </div>
+      </div>
+      <div class="box">
+        <div class="box-t">⚔️ 竞争判断</div>
+        <div class="kv">
+          <dt>Review<250</dt><dd>{{RV_LT250}}/24 <span class="b {{RV_C}}">{{RV_L}}</span></dd>
+          <dt>第一品牌占比</dt><dd>{{TOP1_PCT}}%</dd>
+          <dt>前三品牌合计</dt><dd>{{TOP3_PCT}}%</dd>
+          <dt>推广成本</dt><dd><span class="b {{PROMO_C}}">{{PROMO_L}}</span></dd>
+        </div>
+      </div>
+    </div>
+
+    <!-- 供需指数 -->
+    <div class="box">
+      <div class="box-t">🎯 供需指数</div>
+      <table>
+        <tr><th>属性组合</th><th>供需指数</th><th>判断</th></tr>
+        {{SD_ROWS}}
+      </table>
+      <div class="kv" style="margin-top:6px">
+        <dt>正式机会数</dt><dd><strong>{{FORMAL_OPPS}}</strong>个（5条件全满足）</dd>
+      </div>
+    </div>
+
+    <!-- 差评机会 -->
+    <div class="box">
+      <div class="box-t">🔍 差评机会（Top 3）</div>
+      <table>
+        <tr><th>痛点</th><th>频次</th><th>改进方案</th><th>可行性</th></tr>
+        {{PAIN_ROWS}}
+      </table>
+    </div>
+
+    <hr class="divider">
+
+    <!-- 利润 -->
+    <div class="box">
+      <div class="box-t">💰 利润测算</div>
+      <table>
+        <tr><td>售价</td><td><strong>${{PRICE}}</strong></td><td>采购</td><td>${{COST}}</td><td>头程</td><td>${{SHIP}}</td></tr>
+        <tr><td>FBA</td><td>${{FBA}}</td><td>佣金</td><td>${{COMM}}</td><td>广告</td><td>${{ADS}}</td></tr>
+        <tr><td>退货</td><td>${{RMA}}</td><td>其他</td><td>${{OTHER}}</td><td></td><td></td></tr>
+      </table>
+      <div class="sig" style="margin-top:8px">
+        <div class="si si-{{PC}}">
+          <div class="l">单件净利</div><div class="v">${{UNIT_PROFIT}}</div>
+        </div>
+        <div class="si si-{{PC}}">
+          <div class="l">净利率</div><div class="v">{{PROFIT_RATE}}%</div>
+        </div>
+        <div class="si si-{{PC}}">
+          <div class="l">毛利率</div><div class="v">{{GROSS_RATE}}%</div>
+        </div>
+      </div>
+      <div class="kv" style="font-size:11px">
+        <dt>广告压力</dt><dd>ACOS {{ACOS}}% → 承压空间 {{PRESSURE}}%</dd>
+        <dt>价格趋势</dt><dd>{{PRICE_TREND}}</dd>
+      </div>
+    </div>
+
+    <!-- 可进入空间 -->
+    <div class="box">
+      <div class="box-t">📐 可进入空间（乘法模型）</div>
+      <div class="kv">
+        <dt>计算</dt><dd>{{F1}} × {{F2}} × {{F3}} × {{F4}} = <strong>{{ENTER_SPACE}}</strong></dd>
+        <dt>判断</dt><dd><span class="b {{ES_C}}">{{ES_L}}</span></dd>
+      </div>
+    </div>
+
+    <!-- 综合结论 -->
+    <div class="sig" style="margin-top:14px">
+      <div class="si si-{{FINAL_C}}" style="flex:2">
+        <div class="l">综合结论</div>
+        <div class="v" style="font-size:20px">{{FINAL_VERDICT}}</div>
+        <div style="font-size:12px;margin-top:4px">{{FINAL_REASON}}</div>
+      </div>
+    </div>
+
+    <div class="kv" style="margin-top:10px">
+      <dt>下一步</dt><dd>{{NEXT_STEP}}</dd>
+    </div>
+
+  </div>
+  <div class="ft">本报告基于公开数据快速筛选，建议拿样前做进一步验证</div>
+</div>
+</div>
+</body>
+</html>

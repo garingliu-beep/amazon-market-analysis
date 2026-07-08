@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{CATEGORY_NAME}} 选品市场调研报告</title>
+<style>
+:root{--bg:#f8f9fa;--white:#fff;--text:#1a1a2e;--t2:#6c757d;--bd:#e9ecef;--pri:#2563eb;--grn:#10b981;--ylw:#f59e0b;--red:#ef4444;--bl:#eff6ff;--gl:#ecfdf5;--yl:#fffbeb;--rl:#fef2f2;--pl:#f5f3ff;--r:8px;--sh:0 1px 3px rgba(0,0,0,.08)}
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text);line-height:1.6;font-size:14px}
+.c{max-width:960px;margin:0 auto;padding:24px 16px}
+.hdr{background:linear-gradient(135deg,#1e3a5f,#2563eb);color:#fff;padding:32px;border-radius:var(--r);margin-bottom:24px}.hdr h1{font-size:22px;font-weight:700;margin-bottom:6px}.hdr .m{font-size:13px;opacity:.85;display:flex;gap:20px;flex-wrap:wrap}.hdr .cf{display:inline-flex;align-items:center;gap:4px;background:rgba(255,255,255,.15);padding:4px 10px;border-radius:20px;font-size:12px;margin-top:8px}
+.sec{background:var(--white);border-radius:var(--r);box-shadow:var(--sh);margin-bottom:20px;overflow:hidden}.st{font-size:16px;font-weight:700;padding:16px 20px;border-bottom:2px solid var(--pri);display:flex;align-items:center;gap:8px}.sb{padding:20px}
+.sub{font-size:14px;font-weight:600;color:var(--pri);margin:16px 0 8px;padding-bottom:4px;border-bottom:1px solid var(--bd)}.sub:first-child{margin-top:0}
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:13px}th{background:#f1f5f9;font-weight:600;text-align:left;padding:10px 12px;border:1px solid var(--bd)}td{padding:8px 12px;border:1px solid var(--bd)}tr:hover td{background:#f8fafc}
+.b{display:inline-block;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:600}.b-g{background:var(--gl);color:#065f46}.b-y{background:var(--yl);color:#92400e}.b-r{background:var(--rl);color:#991b1b}.b-b{background:var(--bl);color:#1e40af}
+.sig{display:flex;gap:12px;margin:12px 0}.si{flex:1;padding:16px;border-radius:var(--r);text-align:center;border:2px solid transparent}.si-g{background:var(--gl);border-color:var(--grn)}.si-y{background:var(--yl);border-color:var(--ylw)}.si-r{background:var(--rl);border-color:var(--red)}.si .lb{font-size:12px;color:var(--t2)}.si .vl{font-size:22px;font-weight:700;margin:4px 0}
+.dash{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}.dc{padding:14px;border-radius:var(--r);border:1px solid var(--bd)}.dc .dl{font-size:12px;color:var(--t2)}.dc .dv{font-size:20px;font-weight:700;margin:4px 0}.dc .ds{font-size:11px;color:var(--t2)}
+.sr{display:flex;align-items:center;gap:10px;margin:6px 0}.sl{width:100px;font-size:13px;text-align:right;flex-shrink:0}.sbg{flex:1;height:10px;background:#e5e7eb;border-radius:5px;overflow:hidden}.sbar{height:100%;border-radius:5px}.sn{width:90px;font-size:13px;font-weight:600;flex-shrink:0}
+.al{padding:12px 16px;border-radius:var(--r);margin:10px 0;font-size:13px;display:flex;align-items:flex-start;gap:8px}.al-w{background:var(--yl);border-left:4px solid var(--ylw)}.al-d{background:var(--rl);border-left:4px solid var(--red)}.al-i{background:var(--bl);border-left:4px solid var(--pri)}.al-s{background:var(--gl);border-left:4px solid var(--grn)}
+.kvp{display:grid;grid-template-columns:140px 1fr;gap:6px 12px;font-size:13px}.kvp dt{font-weight:600;color:var(--t2);text-align:right}
+.tc{display:grid;grid-template-columns:1fr 1fr;gap:16px}@media(max-width:640px){.tc{grid-template-columns:1fr}}
+.ft{text-align:center;padding:20px;font-size:12px;color:var(--t2);border-top:1px solid var(--bd);margin-top:20px}
+.sd-card{border:1px solid var(--bd);border-radius:var(--r);padding:14px;margin:10px 0}.sd-hd{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}.sd-combo{font-weight:700;font-size:14px}.sd-idx{font-size:22px;font-weight:700}.sd-meta{display:flex;gap:16px;font-size:12px;color:var(--t2)}.sd-exp{margin-top:8px;padding-top:8px;border-top:1px dashed var(--bd);font-size:13px}
+.db-card{background:var(--white);border:2px solid var(--bd);border-radius:var(--r);padding:20px;margin:12px 0}.db-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}.db-item{text-align:center;padding:10px;border-radius:var(--r)}.db-item .db-l{font-size:11px;color:var(--t2)}.db-item .db-v{font-size:18px;font-weight:700;margin:4px 0}.db-item .db-s{font-size:10px;color:var(--t2)}
+.page-break{page-break-before:always;margin-top:40px}@media print{body{background:#fff;font-size:11px}.c{padding:0;max-width:100%}.sec{box-shadow:none;border:1px solid #ddd;page-break-inside:avoid}.hdr{background:#1e3a5f!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}.si,.b,.db-item{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style>
+</head>
+<body>
+<div class="c">
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- 报告头部 - 所有模式通用                      -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="hdr">
+  <h1>{{CATEGORY_NAME}} — {{REPORT_TITLE}}</h1>
+  <div class="m">
+    <span>📍 目标站点：{{TARGET_SITE}}</span>
+    <span>📅 调研日期：{{DATE}}</span>
+    <span>📊 分析模式：{{MODE_NAME}}</span>
+  </div>
+  <div class="cf">数据置信度：{{CONFIDENCE}}</div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- 报告摘要 - 模式二/三                         -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="sec">
+  <div class="st">📋 报告摘要</div>
+  <div class="sb">
+    <div class="sig">
+      <div class="si si-{{SIG_COLOR}}">
+        <div class="lb">综合评分</div><div class="vl">{{TOTAL_SCORE}}/10</div>
+      </div>
+      <div class="si si-{{SIG_COLOR}}">
+        <div class="lb">可进入空间</div><div class="vl">{{ENTER_SPACE}}</div>
+      </div>
+      <div class="si si-{{SIG_COLOR}}">
+        <div class="lb">最终建议</div><div class="vl">{{CONCLUSION}}</div>
+      </div>
+    </div>
+    <div class="tc" style="margin-top:12px">
+      <div><strong>核心优势：</strong><br>{{ADVANTAGES}}</div>
+      <div><strong>核心风险：</strong><br>{{RISKS}}</div>
+    </div>
+    <dl class="kvp" style="margin-top:12px">
+      <dt>建议售价</dt><dd>${{SUGGEST_PRICE}}</dd>
+      <dt>预估月利润</dt><dd>${{EST_MONTHLY_PROFIT}}</dd>
+      <dt>回本周期</dt><dd>{{PAYBACK_MONTHS}}个月</dd>
+      <dt>启动资金</dt><dd>${{STARTUP_COST}}</dd>
+    </dl>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- 一、品类概览                                  -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="sec">
+  <div class="st">📦 一、品类概览</div>
+  <div class="sb">
+    <div class="sub">1.1 品类定义</div>
+    <dl class="kvp">
+      <dt>类目节点</dt><dd>{{CATEGORY_NODE}}</dd>
+      <dt>产品定义</dt><dd>{{PRODUCT_DEF}}</dd>
+      <dt>核心场景</dt><dd>{{USE_SCENES}}</dd>
+    </dl>
+
+    <div class="sub">1.2 买家决策维度</div>
+    <table>
+      <tr><th>维度</th><th>评分</th><th>搜索需求</th><th>区分度</th><th>购买影响</th><th>可打标</th><th>业务可用</th></tr>
+      {{DIMENSION_ROWS}}
+    </table>
+    <div class="al al-i">🤖 维度评分公式：搜索需求×35% + 区分产品×20% + 购买影响×20% + 可打标×15% + 业务可用×10% {{DIM_NOTE}}</div>
+
+    <div class="sub">1.3 市场趋势</div>
+    <dl class="kvp">
+      <dt>趋势判断</dt><dd>{{TREND}}</dd>
+      <dt>判断依据</dt><dd>{{TREND_BASIS}}</dd>
+      <dt>季节性</dt><dd>{{SEASONALITY}}</dd>
+    </dl>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- 二、竞争格局                                  -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="sec">
+  <div class="st">⚔️ 二、竞争格局</div>
+  <div class="sb">
+    <div class="tc">
+      <div>
+        <div class="sub">品牌集中度</div>
+        <dl class="kvp">
+          <dt>HHI指数</dt><dd>{{HHI}} <span class="b {{HHI_COLOR}}">{{HHI_LEVEL}}</span></dd>
+          <dt>Top10集中度</dt><dd>{{TOP10_CONC}}%</dd>
+        </dl>
+      </div>
+      <div>
+        <div class="sub">Review壁垒</div>
+        <dl class="kvp">
+          <dt>等级</dt><dd><span class="b {{RW_COLOR}}">{{REVIEW_WALL}}</span></dd>
+          <dt>首页均评</dt><dd>{{AVG_REVIEW}}条</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="sub">推广成本评估</div>
+    <table>
+      <tr><th>指标</th><th>数值</th><th>判断</th></tr>
+      <tr><td>核心词CPC</td><td>${{CPC}}</td><td><span class="b {{CPC_C}}">{{CPC_L}}</span></td></tr>
+      <tr><td>首页平均评论数</td><td>{{AVG_REVIEW}}</td><td><span class="b {{RV_C}}">{{RV_L}}</span></td></tr>
+      <tr><td>首页平均评分</td><td>{{AVG_RATING}}</td><td><span class="b {{RT_C}}">{{RT_L}}</span></td></tr>
+      <tr><td>品牌集中度HHI</td><td>{{HHI}}</td><td><span class="b {{HHI_C}}">{{HHI_L}}</span></td></tr>
+    </table>
+
+    <div class="sub">新品存活率</div>
+    <dl class="kvp">
+      <dt>新品占比</dt><dd>{{NEW_PCT}}%</dd>
+      <dt>新品平均月销</dt><dd>{{NEW_AVG_SALES}}件</dd>
+      <dt>判断</dt><dd><span class="b {{NC}}">{{NEW_CHANCE}}</span></dd>
+    </dl>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- 三、价格带分析 + 广告压力                     -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="sec">
+  <div class="st">💲 三、价格带分析 + 广告压力</div>
+  <div class="sb">
+    <table>
+      <tr><th>价格区间</th><th>产品数</th><th>月销量</th><th>月销额</th><th>均Review</th><th>均评分</th><th>新品</th><th>毛利率</th><th>ACOS</th><th>承压空间</th></tr>
+      {{PRICE_BAND_ROWS}}
+    </table>
+    <p style="margin-top:10px;font-weight:700">最优价格交叉区间：${{BEST_PRICE_LOW}} - ${{BEST_PRICE_HIGH}}</p>
+    <p style="font-size:13px;color:var(--t2)">{{BEST_PRICE_REASON}}</p>
+
+    <div class="sub">广告压力分析</div>
+    <dl class="kvp">
+      <dt>ACOS公式</dt><dd>ACOS = PPC ÷ (CVR × 售价) = {{ACOS_VALUE}}%</dd>
+      <dt>广告承压空间</dt><dd>毛利率{{GROSS_MARGIN}}% - 广告费占比{{ADS_PCT}}% = <strong>{{AD_PRESSURE}}%</strong></dd>
+      <dt>判断</dt><dd><span class="b {{AP_COLOR}}">{{AP_JUDGE}}</span></dd>
+    </dl>
+
+    <div class="sub">价格敏感度</div>
+    <dl class="kvp">
+      <dt>相关系数</dt><dd>r = {{PRICE_R}}</dd>
+      <dt>敏感度</dt><dd><span class="b {{PS_COLOR}}">{{PRICE_SENS}}</span></dd>
+      <dt>含义</dt><dd>{{PS_MEANING}}</dd>
+    </dl>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- 四、供需指数分析                              -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="sec">
+  <div class="st">🎯 四、供需指数分析</div>
+  <div class="sb">
+    <div class="al al-i">📌 供需指数 = Listing销量占比 ÷ Listing数量占比 | >1 = 需求强于供给（机会）</div>
+
+    <div class="sub">正式机会列表（5条件全满足）</div>
+    {{SD_OPPORTUNITY_CARDS}}
+
+    <div class="sub">观察项（不满足全部5条件）</div>
+    {{SD_OBSERVATION_CARDS}}
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- 五、利润模型                                  -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="sec">
+  <div class="st">💰 五、利润模型</div>
+  <div class="sb">
+    <div class="sub">成本拆解（以${{PRICE}}售价为例）</div>
+    <table>
+      <tr><th>成本项</th><th>金额</th><th>占比</th><th>来源</th></tr>
+      {{COST_ROWS}}
+    </table>
+
+    <div class="sub">三情景利润测算</div>
+    <div class="sig">
+      <div class="si si-g">
+        <div class="lb">乐观 (ACoS15%/退货2%)</div>
+        <div class="vl">${{OPT_PROFIT}}</div>
+        <div class="lb">净利率 {{OPT_RATE}}%</div>
+      </div>
+      <div class="si si-y">
+        <div class="lb">基准 (ACoS20%/退货5%)</div>
+        <div class="vl">${{BASE_PROFIT}}</div>
+        <div class="lb">净利率 {{BASE_RATE}}%</div>
+      </div>
+      <div class="si si-r">
+        <div class="lb">保守 (ACoS30%/退货8%)</div>
+        <div class="vl">${{CON_PROFIT}}</div>
+        <div class="lb">净利率 {{CON_RATE}}%</div>
+      </div>
+    </div>
+
+    <div class="sub">盈亏平衡</div>
+    <dl class="kvp">
+      <dt>月利润预估</dt><dd>${{MONTHLY_LOW}} - ${{MONTHLY_HIGH}}</dd>
+      <dt>回本周期</dt><dd>{{PAYBACK_LOW}} - {{PAYBACK_HIGH}}个月</dd>
+    </dl>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- 六、差异化策略                                -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="sec">
+  <div class="st">💡 六、差异化策略</div>
+  <div class="sb">
+    <div class="sub">正式机会对应的产品方向</div>
+    {{DIFF_DIRECTIONS}}
+
+    <div class="sub">建议差异化策略</div>
+    <dl class="kvp">
+      <dt>首选方向</dt><dd>{{DIFF_PRIMARY}}</dd>
+      <dt>理由</dt><dd>{{DIFF_REASON}}</dd>
+      <dt>建议产品规格</dt><dd>{{DIFF_SPEC}}</dd>
+      <dt>建议定价</dt><dd>${{DIFF_PRICE}}</dd>
+    </dl>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- 七、风险清单                                  -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="sec">
+  <div class="st">⚠️ 七、风险清单</div>
+  <div class="sb">
+    <table>
+      <tr><th>风险类型</th><th>等级</th><th>说明</th><th>建议</th></tr>
+      {{RISK_ROWS}}
+    </table>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- 八、综合决策                                  -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="sec">
+  <div class="st">🏁 八、综合决策</div>
+  <div class="sb">
+    <div class="sub">8.1 综合评分</div>
+    <div class="sr"><span class="sl">市场需求</span><div class="sbg"><div class="sbar" style="width:{{S1}}%;background:var(--pri)"></div></div><span class="sn">{{S1}}/10 × 25%</span></div>
+    <div class="sr"><span class="sl">竞争可行性</span><div class="sbg"><div class="sbar" style="width:{{S2}}%;background:var(--pri)"></div></div><span class="sn">{{S2}}/10 × 25%</span></div>
+    <div class="sr"><span class="sl">利润空间</span><div class="sbg"><div class="sbar" style="width:{{S3}}%;background:var(--grn)"></div></div><span class="sn">{{S3}}/10 × 20%</span></div>
+    <div class="sr"><span class="sl">差异化空间</span><div class="sbg"><div class="sbar" style="width:{{S4}}%;background:var(--ylw)"></div></div><span class="sn">{{S4}}/10 × 20%</span></div>
+    <div class="sr"><span class="sl">风险可控度</span><div class="sbg"><div class="sbar" style="width:{{S5}}%;background:var(--grn)"></div></div><span class="sn">{{S5}}/10 × 10%</span></div>
+    <p style="margin-top:14px;font-size:18px;font-weight:700">综合得分：{{TOTAL_SCORE}}/10</p>
+
+    <div class="sub">8.2 可进入空间（乘法模型）</div>
+    <div class="dash">
+      <div class="dc"><div class="dl">市场容量因子</div><div class="dv">{{F1}}</div><div class="ds">月GMV ${{GMV}}</div></div>
+      <div class="dc"><div class="dl">非垄断空间因子</div><div class="dv">{{F2}}</div><div class="ds">Top10集中度 {{TOP10}}%</div></div>
+      <div class="dc"><div class="dl">可运营性因子</div><div class="dv">{{F3}}</div><div class="ds">{{F3_DESC}}</div></div>
+      <div class="dc"><div class="dl">利润余量因子</div><div class="dv">{{F4}}</div><div class="ds">基准净利率 {{BNR}}%</div></div>
+    </div>
+    <p style="margin-top:12px;font-size:16px;font-weight:700">可进入空间 = {{F1}} × {{F2}} × {{F3}} × {{F4}} = <span style="color:var(--pri);font-size:20px">{{ENTER_SPACE}}</span></p>
+
+    <div class="sub">8.3 老板仪表盘</div>
+    <div class="db-card">
+      <div class="db-row">
+        <div class="db-item" style="background:{{DB1_C}}"><div class="db-l">年销售额</div><div class="db-v">${{DB_ANNUAL_SALES}}</div><div class="db-s">标准 > $6M</div></div>
+        <div class="db-item" style="background:{{DB2_C}}"><div class="db-l">年销量</div><div class="db-v">{{DB_ANNUAL_QTY}}</div><div class="db-s">品类匹配</div></div>
+        <div class="db-item" style="background:{{DB3_C}}"><div class="db-l">平均售价</div><div class="db-v">${{DB_AVG_PRICE}}</div><div class="db-s">标准 > $30</div></div>
+      </div>
+      <div class="db-row" style="margin-top:8px">
+        <div class="db-item" style="background:{{DB4_C}}"><div class="db-l">PPC</div><div class="db-v">${{DB_PPC}}</div><div class="db-s">结合CVR和售价</div></div>
+        <div class="db-item" style="background:{{DB5_C}}"><div class="db-l">转化率</div><div class="db-v">{{DB_CVR}}%</div><div class="db-s">标准 > 10%</div></div>
+        <div class="db-item" style="background:{{DB6_C}}"><div class="db-l">ACOS</div><div class="db-v">{{DB_ACOS}}%</div><div class="db-s">< 毛利率50%</div></div>
+      </div>
+      <div class="db-row" style="margin-top:8px">
+        <div class="db-item" style="background:{{DB7_C}}"><div class="db-l">前10%集中度</div><div class="db-v">{{DB_CONC}}%</div><div class="db-s">标准 < 60%</div></div>
+        <div class="db-item" style="background:{{DB8_C}}"><div class="db-l">新品成功率</div><div class="db-v">{{DB_NEW_RATE}}%</div><div class="db-s">标准 > 15%</div></div>
+        <div class="db-item" style="background:{{DB9_C}}"><div class="db-l">机会数(供需>1)</div><div class="db-v">{{DB_OPPS}}</div><div class="db-s">标准 ≥ 3</div></div>
+      </div>
+    </div>
+
+    <div class="sub">8.4 最终建议</div>
+    <div class="sig">
+      <div class="si si-{{FINAL_COLOR}}" style="flex:2">
+        <div class="lb">最终建议</div>
+        <div class="vl">{{FINAL_VERDICT}}</div>
+        <div style="font-size:13px;margin-top:6px">{{FINAL_REASON}}</div>
+      </div>
+    </div>
+
+    {{EXECUTION_PLAN}}
+  </div>
+</div>
+
+<div class="ft">
+  本报告由 AI 辅助生成 | 数据精度 {{CONFIDENCE}}<br>
+  标注"AI推断/识别/建议"的内容需人工确认 | 市场数据具有时效性，建议30天内使用
+</div>
+
+</div>
+</body>
+</html>
