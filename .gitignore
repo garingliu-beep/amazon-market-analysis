@@ -1,0 +1,30 @@
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editors
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Temp files
+*.tmp
+*.bak
+*.log
+
+# Generated reports (keep out of repo)
+调研报告/
+*.html
+!references/templates/*.html
+
+# Python
+__pycache__/
+*.pyc
+.env
+
+# Node (if any tooling added later)
+node_modules/
+package-lock.json
